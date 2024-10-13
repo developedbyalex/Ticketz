@@ -1,0 +1,62 @@
+# Bot Configuration
+bot:
+  token: "BOT TOKEN HERE"
+  clientId: "CLIENT ID"
+  guildId: "GUILD ID"
+
+# Ticket Configuration
+tickets:
+  category: "Where created tickets will go"
+  supportRole: "The support role"
+  transcriptChannel: "Where transcripts will go"
+  ticketTypes:
+    - name: "Report a player"
+      emoji: "<:Banned:1291207198587883562>"
+      description: "Report a player for breaking server rules"
+      formFields:
+        - label: "Player Username"
+          style: short
+          placeholder: "Enter the username of the player you're reporting"
+          required: true
+        - label: "Reason for Report"
+          style: paragraph
+          placeholder: "Describe the reason for reporting this player"
+          required: true
+        - label: "Evidence"
+          style: paragraph
+          placeholder: "Provide any evidence (e.g., screenshots, video links)"
+          required: false
+
+    - name: "Minecraft server app"
+      emoji: "<a:readmeboi:1292897246106353684>"
+      description: "Apply to join the Minecraft server"
+      formFields:
+        - label: "IGN"
+          style: short
+          placeholder: "Enter your Minecraft In-Game Name (IGN)"
+          required: true
+        - label: "Age"
+          style: short
+          placeholder: "Enter your age"
+          required: true
+        - label: "Why you want to join"
+          style: paragraph
+          placeholder: "Explain why you want to join our Minecraft server"
+          required: true
+
+    - name: "General Issue"
+      emoji: "<:PickaxeStoneOutline256:1291207464682917959>"
+      description: "Get help with any general issues"
+      formFields:
+        - label: "Issue Description"
+          style: paragraph
+          placeholder: "Describe the general issue you're experiencing"
+          required: true
+        - label: "Additional Information"
+          style: paragraph
+          placeholder: "Provide any additional information that might be helpful"
+          required: false
+
+# Database Configuration (for statistics)
+database:
+  uri: "MONGODB ATLAS DB" 
