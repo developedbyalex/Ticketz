@@ -1,0 +1,116 @@
+token: 'YOUR_BOT_TOKEN_HERE'
+
+# Panel settings
+panelColor: '#3498db'
+panelTitle: 'Support Tickets'
+panelDescription: 'Select a category from the dropdown menu below to create a support ticket.'
+dropdownPlaceholder: 'Select ticket category'
+
+# TicketCategories
+ticketCategories:
+  - label: 'General Support'
+    channelName: 'support-<username>'
+    value: 'general'
+    description: 'General questions and issues'
+    emoji: '❓'
+    questions:
+      - label: 'Describe your issue'
+        placeholder: 'Please provide details about your general inquiry'
+        required: true
+        answerType: 'paragraph'
+
+  - label: 'Whitelist Application'
+    channelName: 'whitelist-<username>'
+    value: 'whitelist'
+    description: 'Apply to join our whitelisted Minecraft server'
+    emoji: '📝'
+    questions:
+      - label: 'Minecraft Username'
+        placeholder: 'Enter your Minecraft username'
+        required: true
+        answerType: 'short'
+      - label: 'Age'
+        placeholder: 'How old are you?'
+        required: true
+        answerType: 'short'
+      - label: 'Experience'
+        placeholder: 'How long have you been playing Minecraft?'
+        required: true
+        answerType: 'short'
+      - label: 'Why do you want to join?'
+        placeholder: "Tell us why you'd like to join our server"
+        required: true
+        answerType: 'paragraph'
+      - label: 'Additional information'
+        placeholder: "Any other details you'd like to share?"
+        required: false
+        answerType: 'paragraph'
+
+  - label: 'Billing Issues'
+    channelName: 'billing-<username>'
+    value: 'billing'
+    description: 'Report and resolve billing-related problems'
+    emoji: '💰'
+    questions:
+      - label: 'Minecraft Username'
+        placeholder: 'Enter your Minecraft username'
+        required: true
+        answerType: 'short'
+      - label: 'Transaction ID'
+        placeholder: 'If applicable, enter the transaction ID'
+        required: false
+        answerType: 'short'
+      - label: 'Issue Type'
+        placeholder: 'e.g., Failed payment, Incorrect charge, Refund request'
+        required: true
+        answerType: 'short'
+      - label: 'Issue Description'
+        placeholder: 'Please provide details about your billing issue'
+        required: true
+        answerType: 'paragraph'
+
+  - label: 'Report a User'
+    channelName: 'report-<username>'
+    value: 'report'
+    description: 'Report a user for breaking server rules'
+    emoji: '🚨'
+    questions:
+      - label: 'Your Minecraft / Discord Username'
+        placeholder: 'Enter your Minecraft / Discord username'
+        required: true
+        answerType: 'short'
+      - label: 'Reported User'
+        placeholder: "Enter the Minecraft / Discord username of the user you're reporting"
+        required: true
+        answerType: 'short'
+      - label: 'Reason for Report'
+        placeholder: 'e.g., Griefing, Harassment, Cheating'
+        required: true
+        answerType: 'short'
+      - label: 'Description'
+        placeholder: 'Provide details about the incident. Include date/time if possible'
+        required: true
+        answerType: 'paragraph'
+      - label: 'Evidence'
+        placeholder: 'Do you have screenshots or video evidence? If yes, please provide links'
+        required: false
+        answerType: 'paragraph'
+
+# Ticket settings
+ticketCategory: 'YOUR_TICKET_CATEGORY_ID_HERE'  # The category where tickets will be created
+supportRole: 'YOUR_SUPPORT_ROLE_ID_HERE'  # The role that can see and manage tickets
+transcriptChannel: 'YOUR_TRANSCRIPT_CHANNEL_ID_HERE'  # The channel ID where transcripts will be sent
+transcriptFooter: 'This is the footer of the transcript'
+inactivityTimeout: 1 # Time in minutes
+
+# Messages
+messages:
+  ticketCreated: 'Your ticket has been created. A support team member will be with you shortly.'
+  ticketClosed: 'This ticket has been closed. Thank you for using our support system.'
+  ticketClosedBy: '{user} has closed this ticket.'
+  userAdded: '{user} has been added to the ticket.'
+  userRemoved: '{user} has been removed from the ticket.'
+  transcriptCreated: 'A transcript of this ticket has been created and saved.'
+  noPermission: 'You do not have permission to use this command.'
+  invalidCategory: 'Invalid ticket category selected.'
+  ticketClosing: 'This ticket will be closed in 5 seconds.'
