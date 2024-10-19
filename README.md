@@ -29,13 +29,7 @@ Ticketz is a Discord bot for managing support tickets. This bot allows users to 
 ## Commands
 
 The bot includes the following commands:
-- **Add**: Adds a user to an existing ticket.
-- **Alert**: Initiates a 12-hour countdown to close the ticket if no further activity is detected.
-- **Close**: Closes a ticket and provides a transcript.
-- **Panel**: Generates a panel to interact with ticket options.
-- **Remove**: Removes a user from a ticket.
-- **Rename**: Renames the ticket for clarity.
-- **Transcript**: Sends a transcript without closing the ticket.
+- you read code, look. idk it's 4am I am tired.
 
 ## Contributing
 
