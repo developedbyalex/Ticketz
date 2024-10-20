@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, Collection, REST, Routes } = require('discord.js');
+const { Client, GatewayIntentBits, Collection, REST, Routes, EmbedBuilder, ChannelType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const fs = require('fs');
 const yaml = require('js-yaml');
 const { handleTicketCreation, handleModalSubmit, handleCloseTicket } = require('./ticketHandler');
@@ -80,6 +80,34 @@ client.on('interactionCreate', async interaction => {
   } else if (interaction.isButton()) {
     if (interaction.customId === 'close_ticket') {
       await handleCloseTicket(interaction, client);
+    }
+  }
+});
+
+client.on('guildMemberRemove', async (member) => {
+  const guild = member.guild;
+  const config = client.config;
+
+  // Get all text channels in the ticket category
+  const ticketCategory = await guild.channels.fetch(config.ticketCategory);
+  const ticketChannels = ticketCategory.children.cache.filter(channel => channel.type === ChannelType.GuildText);
+
+  for (const [, channel] of ticketChannels) {
+    // Check if the channel topic contains the member's ID
+    if (channel.topic && channel.topic.split('|')[0].trim() === member.id) {
+      const embed = new EmbedBuilder()
+        .setColor(config.panelColor)
+        .setDescription(config.messages.ticketCreatorLeft.replace('{user}', member.toString()));
+
+      // Create close button
+      const closeButton = new ButtonBuilder()
+        .setCustomId('close_ticket')
+        .setLabel('Close Ticket')
+        .setStyle(ButtonStyle.Danger);
+
+      const row = new ActionRowBuilder().addComponents(closeButton);
+
+      await channel.send({ embeds: [embed], components: [row] });
     }
   }
 });
