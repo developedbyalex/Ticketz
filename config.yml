@@ -102,6 +102,7 @@ supportRole: 'YOUR_SUPPORT_ROLE_ID_HERE'  # The role that can see and manage tic
 transcriptChannel: 'YOUR_TRANSCRIPT_CHANNEL_ID_HERE'  # The channel ID where transcripts will be sent
 transcriptFooter: 'This is the footer of the transcript'
 inactivityTimeout: 1 # Time in minutes
+maxTicketsPerUser: 1 # How many tickets a user can hope at once
 
 # Messages
 messages:
@@ -114,3 +115,5 @@ messages:
   noPermission: 'You do not have permission to use this command.'
   invalidCategory: 'Invalid ticket category selected.'
   ticketClosing: 'This ticket will be closed in 5 seconds.'
+  ticketCreatorLeft: "{user} has left the server. This ticket may be closed if no longer needed."
+  ticketLimitReached: "You have reached the maximum number of open tickets. Please close some of your existing tickets before opening a new one."
